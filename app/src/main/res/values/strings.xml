@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tube patH</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">LANJUT</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">MULAI</string>
+    <string name="slide_1_title">TULIS DAFTAR TUGAS ANDA</string>
+    <string name="slide_1_desc">Buat daftar tugas apa saja yang perlu Anda kerjakan di Smartphone Anda dengan mudah.</string>
+    <string name="slide_2_title">AYO WAKTUNYA BELAJAR</string>
+    <string name="slide_2_desc">Belajar itu penting. Agar Anda selalu ingat kapan Anda belajar, gunakan aplikasi ini dan masukkan waktu Anda untuk belajar. Dengan begitu, aplikasi ini akan mengingatkan Anda.</string>
+    <string name="slide_3_title">JANGAN PULANG DULU, ADA RAPAT YANG HARUS DIIKUTI</string>
+    <string name="slide_3_desc">Setelah Anda mengikuti proses belajar mengajar di Institusi Anda, terkadang Anda lupa bahwa hari tersebut ada rapat. Gunakan aplikasi ini dan masukkan waktu dan tempat di mana Anda akan mengikuti rapat.</string>
+    <string name="slide_4_title">INGAT, BANYAK HAL UNTUK DILAKUKAN SELAMA PROSES BELAJAR</string>
+    <string name="slide_4_desc">Banyak hal yang harus Anda ikuti selama pembelajaran, tentu waktu akan selalu berjalan dan terkadang lupa akan suatu hal. Gunakan saja aplikasi sebagai pengingat selama belajar.</string>
+</resources>
