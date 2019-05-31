@@ -18,17 +18,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //defining view objects
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button btnsignup;
-
     private TextView textViewSignin;
-
     private ProgressDialog progressDialog;
-
-
-    //defining firebaseauth object
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -36,39 +30,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //initializing firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //if getCurrentUser does not returns null
         if(firebaseAuth.getCurrentUser() != null){
-            //that means user is already logged in
-            //so close this activity
             finish();
-            //and open profile activity
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
 
-        //initializing views
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewSignin = findViewById(R.id.textViewSignin);
-
         btnsignup = findViewById(R.id.btnsignup);
-
         progressDialog = new ProgressDialog(this);
-
-        //attaching listener to button
         btnsignup.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
     }
 
     private void registerUser(){
 
-        //getting email and password from edit texts
         String email = editTextEmail.getText().toString().trim();
         String password  = editTextPassword.getText().toString().trim();
 
-        //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this,"Masukkan email terlebih dahulu",Toast.LENGTH_LONG).show();
             return;
@@ -79,23 +61,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        //if the email and password are not empty
-        //displaying a progress dialog
-
         progressDialog.setMessage("Pendaftaran di proses, silahkan tunggu");
         progressDialog.show();
 
-        //creating a new user
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
                         if(task.isSuccessful()){
                             Toast.makeText(RegisterActivity.this,"Registrasi berhasil",Toast.LENGTH_LONG).show();
                         }else{
-                            //display some message here
-                            Toast.makeText(RegisterActivity.this,"Registrasi Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this,"Registrasi Error, cek koneksi atau email dan kata sandi Anda atau mungkin Anda sudah mendaftar",Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
@@ -111,7 +87,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if(view == textViewSignin){
-            //open login activity when user taps on the already registered textview
             startActivity(new Intent(this, LoginActivity.class));
         }
 
