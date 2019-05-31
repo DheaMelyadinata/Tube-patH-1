@@ -11,8 +11,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 public class SplashScreen extends AppCompatActivity {
     private int waktu_loading=2000;
 
-    //4000=4 detik
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,22 +20,17 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         GambarGif = findViewById(R.id.anilogo);
         Glide.with(SplashScreen.this)
-                // LOAD URL DARI LOKAL DRAWABLE
                 .load(R.drawable.anisplash)
                 .asGif()
-                //PENGATURAN CACHE
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(GambarGif);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
-                //setelah loading maka akan langsung berpindah ke home activity
                 Intent home=new Intent(SplashScreen.this, WelcomeActivity.class);
                 startActivity(home);
                 finish();
-
             }
         },waktu_loading);
     }
