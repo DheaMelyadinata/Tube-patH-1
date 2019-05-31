@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 public class CheckInet extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +34,6 @@ public class CheckInet extends AppCompatActivity {
         if (netinfo != null && netinfo.isConnectedOrConnecting()) {
             android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
             android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-
             if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
         else return false;
         } else
@@ -47,7 +45,6 @@ public class CheckInet extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
         builder.setTitle("Tidak ada koneksi internet");
         builder.setMessage("Anda membutuhkan koneksi internet untuk dapat mengakses aplikasi ini. Klik OK untuk keluar");
-
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
             @Override
@@ -55,7 +52,6 @@ public class CheckInet extends AppCompatActivity {
                 finish();
             }
         });
-
         return builder;
     }
 
